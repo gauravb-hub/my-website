@@ -2,32 +2,207 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Gaurav's Hub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Bakshi | Developer Portfolio</title>
     <style>
-        body {
-            font-family: 'Courier New', monospace; /* Techy font */
-            background-color: #1a1a1a; /* Dark mode */
-            color: #00ff00; /* Hacker green text */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+        /* DARK MODE PROFESSIONAL THEME */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #121212; 
+            color: #e0e0e0; 
+            margin: 0; 
+            padding: 0; 
         }
-        .container {
+
+        /* HEADER SECTION */
+        header {
+            background-color: #1e1e1e;
+            padding: 50px 20px;
             text-align: center;
-            border: 2px solid #00ff00;
-            padding: 40px;
-            box-shadow: 0 0 15px #00ff00;
+            border-bottom: 3px solid #00ff41; /* "Matrix" Green Accent */
+        }
+        h1 { margin: 0; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+        .subtitle { color: #00ff41; font-weight: bold; margin-top: 10px; font-size: 1.1em; }
+        .contact-info { margin-top: 20px; font-size: 0.9em; color: #aaa; }
+        .contact-info a { color: #aaa; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
+        .contact-info a:hover { color: #00ff41; }
+
+        /* TIMELINE CONTAINER */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* THE VERTICAL LINE */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #333;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        /* INDIVIDUAL CONTAINERS */
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        /* DOTS ON THE LINE */
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: #121212;
+            border: 3px solid #00ff41;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+
+        .left::after { right: -10px; }
+        .right::after { left: -14px; }
+
+        /* CONTENT BOXES */
+        .content {
+            padding: 25px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            border-left: 4px solid #00ff41; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
+        }
+        .content:hover { transform: translateY(-5px); }
+
+        h2 { margin-top: 0; font-size: 1.3em; color: #fff; }
+        h3 { margin-top: 5px; font-size: 1em; color: #00ff41; font-weight: 600; }
+        .date { font-size: 0.85em; color: #888; margin-bottom: 15px; font-style: italic; }
+        p { font-size: 0.95em; line-height: 1.6; color: #ccc; }
+        ul { padding-left: 20px; margin: 0; text-align: left; }
+        li { margin-bottom: 8px; font-size: 0.95em; color: #ccc; }
+
+        /* SKILLS SECTION (Bottom) */
+        .skills {
+            max-width: 900px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .skill-tag {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 8px 18px;
+            margin: 6px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #444;
+            transition: background-color 0.3s;
+        }
+        .skill-tag:hover { background-color: #00ff41; color: #000; cursor: default; }
+
+        /* MOBILE FIXES */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
+            .left::after, .right::after { left: 21px; }
+            .right { left: 0%; }
+            .left { text-align: left; } 
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>SYSTEM STATUS: ONLINE</h1>
-        <p>Hello World v2</p>
-        <p>Connection established to: gaurav-hub.com</p>
-        <p>Current Owner: Gaurav Bakshi</p>
+
+<header>
+    <h1>GAURAV BAKSHI</h1>
+    <div class="subtitle">Internal Developer & Software Engineering Student</div>
+    <div class="contact-info">
+        <a href="mailto:contact@gaurav-hub.com">contact@gaurav-hub.com</a> |
+        <a href="https://github.com/gauravb-hub" target="_blank">GitHub</a> |
+        <a href="https://www.linkedin.com/in/gaurav-bakshi-814260336/" target="_blank">LinkedIn</a>
     </div>
+</header>
+
+<div class="timeline">
+    
+    <div class="container right">
+        <div class="content">
+            <h2>Internal Developer</h2>
+            <h3>Cosmetica Laboratories Inc.</h3>
+            <div class="date">Oct 2025 - Present</div>
+            <ul>
+                <li>Building enterprise workflows in the Decisions low-code platform.</li>
+                <li>Implementing REST/SQL integrations to automate validations and approvals.</li>
+                <li>Authoring unit tests and versioning releases for reliable deployments.</li>
+                <li>Packaging internal tools into distributable applications for company-wide use.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <h2>IT Help Desk</h2>
+            <h3>Cosmetica Laboratories Inc.</h3>
+            <div class="date">Nov 2024 - Oct 2025</div>
+            <ul>
+                <li>Managed support requests using ticketing systems to ensure timely resolutions.</li>
+                <li>Administered Active Directory accounts and Microsoft Intune device management.</li>
+                <li>Collaborated on system upgrades, security compliance, and software rollouts.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container right">
+        <div class="content">
+            <h2>B.Tech, Software Engineering</h2>
+            <h3>McMaster University</h3>
+            <div class="date">Sept 2024 - Present</div>
+            <p>Currently pursuing Bachelor of Software Engineering Technology.</p>
+            <p>Focusing on advanced software architecture and system design.</p>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <h2>Computer Programming & Analysis</h2>
+            <h3>Seneca Polytechnic</h3>
+            <div class="date">Sept 2020 - Apr 2024</div>
+            <p><strong>Graduated with High Honors (GPA 4.0/4.0)</strong></p>
+            <p>Specialized in full-stack development, database management, and cloud integration.</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="skills">
+    <h2 style="color: #00ff41; margin-bottom: 20px;">Technical Arsenal</h2>
+    <span class="skill-tag">Python</span>
+    <span class="skill-tag">C++</span>
+    <span class="skill-tag">C#</span>
+    <span class="skill-tag">JavaScript / React</span>
+    <span class="skill-tag">SQL / MongoDB</span>
+    <span class="skill-tag">Docker</span>
+    <span class="skill-tag">Azure</span>
+    <span class="skill-tag">Unreal Engine 5</span>
+    <span class="skill-tag">Git / GitHub</span>
+</div>
+
+<footer style="text-align: center; padding: 30px; color: #555; font-size: 0.8em;">
+    &copy; 2025 Gaurav Bakshi. All Rights Reserved.
+</footer>
+
 </body>
 </html>
