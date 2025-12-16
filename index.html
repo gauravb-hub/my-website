@@ -3,35 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaurav Bakshi | Developer Portfolio</title>
+    <title>Gaurav Bakshi | Personnel File</title>
     <style>
-        /* DARK MODE PROFESSIONAL THEME */
+        /* BLACK MESA / INDUSTRIAL THEME */
+        :root {
+            --bg-color: #0b0b0b;
+            --card-bg: #141414;
+            --text-main: #d0d0d0;
+            --text-header: #ffffff;
+            --accent-orange: #ff7b00; /* The Iconic Orange */
+            --accent-dim: #b35500;
+        }
+
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #121212; 
-            color: #e0e0e0; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean Industrial Font */
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
             margin: 0; 
             padding: 0; 
+            line-height: 1.6;
         }
 
         /* HEADER SECTION */
         header {
-            background-color: #1e1e1e;
-            padding: 50px 20px;
+            background-color: var(--card-bg);
+            padding: 60px 20px;
             text-align: center;
-            border-bottom: 3px solid #00ff41; /* "Matrix" Green Accent */
+            border-bottom: 4px solid var(--accent-orange);
+            background-image: linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a), 
+                              linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
         }
-        h1 { margin: 0; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
-        .subtitle { color: #00ff41; font-weight: bold; margin-top: 10px; font-size: 1.1em; }
-        .contact-info { margin-top: 20px; font-size: 0.9em; color: #aaa; }
-        .contact-info a { color: #aaa; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
-        .contact-info a:hover { color: #00ff41; }
+        
+        h1 { 
+            margin: 0; 
+            color: var(--text-header); 
+            font-size: 2.5em; 
+            text-transform: uppercase; 
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+        
+        .subtitle { 
+            color: var(--accent-orange); 
+            font-weight: bold; 
+            margin-top: 10px; 
+            font-size: 1.1em; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+
+        .contact-info { margin-top: 20px; font-size: 0.9em; color: #888; }
+        .contact-info a { color: #888; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
+        .contact-info a:hover { color: var(--accent-orange); }
 
         /* TIMELINE CONTAINER */
         .timeline {
             position: relative;
             max-width: 900px;
-            margin: 50px auto;
+            margin: 60px auto;
             padding: 0 20px;
         }
 
@@ -39,88 +70,147 @@
         .timeline::after {
             content: '';
             position: absolute;
-            width: 4px;
+            width: 2px;
             background-color: #333;
             top: 0;
             bottom: 0;
             left: 50%;
-            margin-left: -2px;
+            margin-left: -1px;
         }
 
         /* INDIVIDUAL CONTAINERS */
         .container {
             padding: 10px 40px;
             position: relative;
-            background-color: inherit;
             width: 50%;
             box-sizing: border-box;
         }
 
-        /* DOTS ON THE LINE */
+        /* DOTS ON THE LINE (The Hazard Marker) */
         .container::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: #121212;
-            border: 3px solid #00ff41;
-            top: 15px;
-            border-radius: 50%;
+            width: 14px;
+            height: 14px;
+            right: -7px;
+            background-color: var(--bg-color);
+            border: 2px solid var(--accent-orange);
+            top: 22px;
+            border-radius: 0%; /* Square dots for industrial look */
             z-index: 1;
+            transform: rotate(45deg); /* Diamond shape */
         }
 
         .left { left: 0; text-align: right; }
         .right { left: 50%; text-align: left; }
 
-        .left::after { right: -10px; }
-        .right::after { left: -14px; }
+        .left::after { right: -7px; }
+        .right::after { left: -9px; }
 
         /* CONTENT BOXES */
         .content {
-            padding: 25px;
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            border-left: 4px solid #00ff41; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            transition: transform 0.2s;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 0px; /* Sharp corners */
+            position: relative;
+            transition: all 0.3s ease;
         }
-        .content:hover { transform: translateY(-5px); }
+        
+        /* The Orange Bar Accent */
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--accent-orange);
+        }
+        
+        .right .content::before { left: 0; }
+        .left .content::before { right: 0; }
+        
+        .content:hover { 
+            border-color: var(--accent-orange); 
+            box-shadow: 0 0 15px rgba(255, 123, 0, 0.1);
+        }
 
-        h2 { margin-top: 0; font-size: 1.3em; color: #fff; }
-        h3 { margin-top: 5px; font-size: 1em; color: #00ff41; font-weight: 600; }
-        .date { font-size: 0.85em; color: #888; margin-bottom: 15px; font-style: italic; }
-        p { font-size: 0.95em; line-height: 1.6; color: #ccc; }
-        ul { padding-left: 20px; margin: 0; text-align: left; }
-        li { margin-bottom: 8px; font-size: 0.95em; color: #ccc; }
+        h2 { margin-top: 0; font-size: 1.4em; color: var(--text-header); text-transform: uppercase; letter-spacing: 1px; }
+        h3 { margin-top: 5px; font-size: 0.9em; color: var(--accent-orange); font-weight: 600; text-transform: uppercase; }
+        .date { font-size: 0.8em; color: #666; margin-bottom: 20px; font-family: 'Courier New', monospace; }
+        
+        ul { padding-left: 0; margin: 0; list-style-type: none; }
+        li { 
+            margin-bottom: 10px; 
+            font-size: 0.95em; 
+            color: #ccc; 
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        /* Custom Bullet Points */
+        .left li { padding-right: 0px; text-align: right; }
+        .right li { padding-left: 20px; }
+        
+        .right li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+        }
 
         /* SKILLS SECTION (Bottom) */
         .skills {
             max-width: 900px;
-            margin: 60px auto;
+            margin: 80px auto;
             text-align: center;
             padding: 20px;
+            border-top: 1px solid #333;
         }
+        
+        .section-header {
+            color: var(--text-header);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent-orange);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
         .skill-tag {
             display: inline-block;
-            background-color: #333;
-            color: #fff;
-            padding: 8px 18px;
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 8px 16px;
             margin: 6px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            border: 1px solid #444;
-            transition: background-color 0.3s;
+            font-size: 0.85em;
+            border: 1px solid #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
-        .skill-tag:hover { background-color: #00ff41; color: #000; cursor: default; }
+        .skill-tag:hover { 
+            border-color: var(--accent-orange); 
+            color: var(--accent-orange); 
+        }
 
         /* MOBILE FIXES */
         @media screen and (max-width: 600px) {
             .timeline::after { left: 31px; }
             .container { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
-            .left::after, .right::after { left: 21px; }
+            .left::after, .right::after { left: 24px; }
             .right { left: 0%; }
             .left { text-align: left; } 
+            
+            .left .content::before { right: auto; left: 0; }
+            .left li { text-align: left; padding-left: 20px; }
+            .left li::before {
+                content: '>';
+                position: absolute;
+                left: 0;
+                color: var(--accent-orange);
+            }
         }
     </style>
 </head>
@@ -128,11 +218,11 @@
 
 <header>
     <h1>GAURAV BAKSHI</h1>
-    <div class="subtitle">Internal Developer & Software Engineering Student</div>
+    <div class="subtitle">Internal Developer // Sector C</div>
     <div class="contact-info">
-        <a href="mailto:contact@gaurav-hub.com">contact@gaurav-hub.com</a> |
-        <a href="https://github.com/gauravb-hub" target="_blank">GitHub</a> |
-        <a href="https://www.linkedin.com/in/gaurav-bakshi-814260336/" target="_blank">LinkedIn</a>
+        <a href="mailto:contact@gaurav-hub.com">ENCRYPTED_MAIL: contact@gaurav-hub.com</a> <br><br>
+        <a href="https://github.com/gauravb-hub" target="_blank">[ GITHUB DATABASE ]</a> 
+        <a href="https://www.linkedin.com/in/gaurav-bakshi-814260336/" target="_blank">[ LINKEDIN PROFILE ]</a>
     </div>
 </header>
 
@@ -142,12 +232,12 @@
         <div class="content">
             <h2>Internal Developer</h2>
             <h3>Cosmetica Laboratories Inc.</h3>
-            <div class="date">Oct 2025 - Present</div>
+            <div class="date">OCT 2025 - PRESENT // ACTIVE</div>
             <ul>
-                <li>Building enterprise workflows in the Decisions low-code platform.</li>
-                <li>Implementing REST/SQL integrations to automate validations and approvals.</li>
-                <li>Authoring unit tests and versioning releases for reliable deployments.</li>
-                <li>Packaging internal tools into distributable applications for company-wide use.</li>
+                <li>Building enterprise workflows in Decisions low-code platform.</li>
+                <li>Implementing REST/SQL integrations for validation automation.</li>
+                <li>Authoring unit tests and release protocols for deployment.</li>
+                <li>Packaging internal tools into distributable applications.</li>
             </ul>
         </div>
     </div>
@@ -156,11 +246,11 @@
         <div class="content">
             <h2>IT Help Desk</h2>
             <h3>Cosmetica Laboratories Inc.</h3>
-            <div class="date">Nov 2024 - Oct 2025</div>
+            <div class="date">NOV 2024 - OCT 2025 // COMPLETED</div>
             <ul>
-                <li>Managed support requests using ticketing systems to ensure timely resolutions.</li>
-                <li>Administered Active Directory accounts and Microsoft Intune device management.</li>
-                <li>Collaborated on system upgrades, security compliance, and software rollouts.</li>
+                <li>Managed support requests via ticketing systems.</li>
+                <li>Administered Active Directory & Microsoft Intune assets.</li>
+                <li>Collaborated on security compliance and system upgrades.</li>
             </ul>
         </div>
     </div>
@@ -169,9 +259,8 @@
         <div class="content">
             <h2>B.Tech, Software Engineering</h2>
             <h3>McMaster University</h3>
-            <div class="date">Sept 2024 - Present</div>
-            <p>Currently pursuing Bachelor of Software Engineering Technology.</p>
-            <p>Focusing on advanced software architecture and system design.</p>
+            <div class="date">SEPT 2024 - PRESENT // IN PROGRESS</div>
+            <p>Specialization: Advanced Software Architecture & System Design.</p>
         </div>
     </div>
 
@@ -179,29 +268,31 @@
         <div class="content">
             <h2>Computer Programming & Analysis</h2>
             <h3>Seneca Polytechnic</h3>
-            <div class="date">Sept 2020 - Apr 2024</div>
-            <p><strong>Graduated with High Honors (GPA 4.0/4.0)</strong></p>
-            <p>Specialized in full-stack development, database management, and cloud integration.</p>
+            <div class="date">SEPT 2020 - APR 2024 // CERTIFIED</div>
+            <p><strong>STATUS: HIGH HONORS (GPA 4.0/4.0)</strong></p>
+            <p>Focus: Full-Stack Development, Database Management.</p>
         </div>
     </div>
 
 </div>
 
 <div class="skills">
-    <h2 style="color: #00ff41; margin-bottom: 20px;">Technical Arsenal</h2>
+    <div class="section-header">Technical Authorization</div><br>
+    
     <span class="skill-tag">Python</span>
     <span class="skill-tag">C++</span>
     <span class="skill-tag">C#</span>
-    <span class="skill-tag">JavaScript / React</span>
-    <span class="skill-tag">SQL / MongoDB</span>
+    <span class="skill-tag">JavaScript</span>
+    <span class="skill-tag">SQL</span>
+    
     <span class="skill-tag">Docker</span>
     <span class="skill-tag">Azure</span>
     <span class="skill-tag">Unreal Engine 5</span>
-    <span class="skill-tag">Git / GitHub</span>
+    <span class="skill-tag">Git Control</span>
 </div>
 
-<footer style="text-align: center; padding: 30px; color: #555; font-size: 0.8em;">
-    &copy; 2025 Gaurav Bakshi. All Rights Reserved.
+<footer style="text-align: center; padding: 30px; color: #444; font-size: 0.7em; font-family: 'Courier New', monospace;">
+    &copy; 2025 GAURAV BAKSHI | SECURE CONNECTION ESTABLISHED
 </footer>
 
 </body>
