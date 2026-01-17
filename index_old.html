@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaurav Bakshi | Personnel File</title>
+    <style>
+        /* BLACK MESA / INDUSTRIAL THEME */
+        :root {
+            --bg-color: #0b0b0b;
+            --card-bg: #141414;
+            --text-main: #d0d0d0;
+            --text-header: #ffffff;
+            --accent-orange: #ff7b00; /* The Iconic Orange */
+            --accent-dim: #b35500;
+        }
+
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean Industrial Font */
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6;
+        }
+
+        /* HEADER SECTION */
+        header {
+            background-color: var(--card-bg);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-orange);
+            background-image: linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a), 
+                              linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+        }
+        
+        h1 { 
+            margin: 0; 
+            color: var(--text-header); 
+            font-size: 2.5em; 
+            text-transform: uppercase; 
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+        
+        .subtitle { 
+            color: var(--accent-orange); 
+            font-weight: bold; 
+            margin-top: 10px; 
+            font-size: 1.1em; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+        }
+
+        .contact-info { margin-top: 20px; font-size: 0.9em; color: #888; }
+        .contact-info a { color: #888; text-decoration: none; margin: 0 15px; transition: color 0.3s; }
+        .contact-info a:hover { color: var(--accent-orange); }
+
+        /* TIMELINE CONTAINER */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* THE VERTICAL LINE */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #333;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        /* INDIVIDUAL CONTAINERS */
+        .container {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        /* DOTS ON THE LINE (The Hazard Marker) */
+        .container::after {
+            content: '';
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            right: -7px;
+            background-color: var(--bg-color);
+            border: 2px solid var(--accent-orange);
+            top: 22px;
+            border-radius: 0%; /* Square dots for industrial look */
+            z-index: 1;
+            transform: rotate(45deg); /* Diamond shape */
+        }
+
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+
+        .left::after { right: -7px; }
+        .right::after { left: -9px; }
+
+        /* CONTENT BOXES */
+        .content {
+            padding: 30px;
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 0px; /* Sharp corners */
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        /* The Orange Bar Accent */
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: var(--accent-orange);
+        }
+        
+        .right .content::before { left: 0; }
+        .left .content::before { right: 0; }
+        
+        .content:hover { 
+            border-color: var(--accent-orange); 
+            box-shadow: 0 0 15px rgba(255, 123, 0, 0.1);
+        }
+
+        h2 { margin-top: 0; font-size: 1.4em; color: var(--text-header); text-transform: uppercase; letter-spacing: 1px; }
+        h3 { margin-top: 5px; font-size: 0.9em; color: var(--accent-orange); font-weight: 600; text-transform: uppercase; }
+        .date { font-size: 0.8em; color: #666; margin-bottom: 20px; font-family: 'Courier New', monospace; }
+        
+        ul { padding-left: 0; margin: 0; list-style-type: none; }
+        li { 
+            margin-bottom: 10px; 
+            font-size: 0.95em; 
+            color: #ccc; 
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        /* Custom Bullet Points */
+        .left li { padding-right: 0px; text-align: right; }
+        .right li { padding-left: 20px; }
+        
+        .right li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+        }
+
+        /* SKILLS SECTION (Bottom) */
+        .skills {
+            max-width: 900px;
+            margin: 80px auto;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .section-header {
+            color: var(--text-header);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent-orange);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 8px 16px;
+            margin: 6px;
+            font-size: 0.85em;
+            border: 1px solid #333;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        .skill-tag:hover { 
+            border-color: var(--accent-orange); 
+            color: var(--accent-orange); 
+        }
+
+        /* MOBILE FIXES */
+        @media screen and (max-width: 600px) {
+            .timeline::after { left: 31px; }
+            .container { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
+            .left::after, .right::after { left: 24px; }
+            .right { left: 0%; }
+            .left { text-align: left; } 
+            
+            .left .content::before { right: auto; left: 0; }
+            .left li { text-align: left; padding-left: 20px; }
+            .left li::before {
+                content: '>';
+                position: absolute;
+                left: 0;
+                color: var(--accent-orange);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>GAURAV BAKSHI</h1>
+    <div class="subtitle">Internal Developer // Sector C</div>
+    <div class="contact-info">
+        <a href="mailto:contact@gaurav-hub.com">ENCRYPTED_MAIL: contact@gaurav-hub.com</a> <br><br>
+        <a href="https://github.com/gauravb-hub" target="_blank">[ GITHUB DATABASE ]</a> 
+        <a href="https://www.linkedin.com/in/gaurav-bakshi-814260336/" target="_blank">[ LINKEDIN PROFILE ]</a>
+    </div>
+</header>
+
+<div class="timeline">
+    
+    <div class="container right">
+        <div class="content">
+            <h2>Internal Developer</h2>
+            <h3>Cosmetica Laboratories Inc.</h3>
+            <div class="date">OCT 2025 - PRESENT // ACTIVE</div>
+            <ul>
+                <li>Building enterprise workflows in Decisions low-code platform.</li>
+                <li>Implementing REST/SQL integrations for validation automation.</li>
+                <li>Authoring unit tests and release protocols for deployment.</li>
+                <li>Packaging internal tools into distributable applications.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <h2>IT Help Desk</h2>
+            <h3>Cosmetica Laboratories Inc.</h3>
+            <div class="date">NOV 2024 - OCT 2025 // COMPLETED</div>
+            <ul>
+                <li>Managed support requests via ticketing systems.</li>
+                <li>Administered Active Directory & Microsoft Intune assets.</li>
+                <li>Collaborated on security compliance and system upgrades.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container right">
+        <div class="content">
+            <h2>B.Tech, Software Engineering</h2>
+            <h3>McMaster University</h3>
+            <div class="date">SEPT 2024 - PRESENT // IN PROGRESS</div>
+            <p>Specialization: Advanced Software Architecture & System Design.</p>
+        </div>
+    </div>
+
+    <div class="container left">
+        <div class="content">
+            <h2>Computer Programming & Analysis</h2>
+            <h3>Seneca Polytechnic</h3>
+            <div class="date">SEPT 2020 - APR 2024 // CERTIFIED</div>
+            <p><strong>STATUS: HIGH HONORS (GPA 4.0/4.0)</strong></p>
+            <p>Focus: Full-Stack Development, Database Management.</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="skills">
+    <div class="section-header">Technical Authorization</div><br>
+    
+    <span class="skill-tag">Python</span>
+    <span class="skill-tag">C++</span>
+    <span class="skill-tag">C#</span>
+    <span class="skill-tag">JavaScript</span>
+    <span class="skill-tag">SQL</span>
+    
+    <span class="skill-tag">Docker</span>
+    <span class="skill-tag">Azure</span>
+    <span class="skill-tag">Unreal Engine 5</span>
+    <span class="skill-tag">Git Control</span>
+</div>
+
+<footer style="text-align: center; padding: 30px; color: #444; font-size: 0.7em; font-family: 'Courier New', monospace;">
+    &copy; 2025 GAURAV BAKSHI | SECURE CONNECTION ESTABLISHED
+</footer>
+
+</body>
+</html>
